@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>LLMs on Juampatronics&#39;s personal website</title>
+		<link>https://juampatronics.github.io/tags/llms/</link>
+		<description>Recent content in LLMs on Juampatronics&#39;s personal website</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 11 Oct 2026 23:57:42 +0200</lastBuildDate>
+		
+			<atom:link href="https://juampatronics.github.io/tags/llms/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Supercharging IPython with ipyllm</title>
+				<link>https://juampatronics.github.io/posts/ipyllm/</link>
+				<pubDate>Sun, 11 Oct 2026 23:57:42 +0200</pubDate>
+				<guid>https://juampatronics.github.io/posts/ipyllm/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;&#34; &gt;ipyllm&lt;/a&gt; is a open source IPython extension that seamlessly integrates Large Language Models (LLMs) into your live IPython environment. Built on top of the versatile &lt;a href=&#34;https://llm.datasette.io/en/stable/usage.html&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;llm&lt;/a&gt; package, ipyllm extends the IPython REPL with agents that access your current environment to help you solve data analysis tasks, assist you with the exploration of an API or help you debug issues in your code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-can-ipyllm-do-for-you&#34;&gt;&#xA;  What can ipyllm do for you?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-can-ipyllm-do-for-you&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Effortless Data Exploration&lt;/strong&gt;: Instead of explaining your dataset in text, ask &lt;code&gt;%llm What columns in &lt;/code&gt;df&lt;code&gt; have missing values?&lt;/code&gt; or &lt;code&gt;%%llm Plot the rolling average of sales using matplotlib and run the code.&lt;/code&gt;. The model inspects the live variables, writes the visualization, and executes it in your session.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Contextual Debugging&lt;/strong&gt;: When a script stalls or fails, drop &lt;code&gt;ipyllm.embed()&lt;/code&gt; into your code. It works just like &lt;code&gt;IPython.embed()&lt;/code&gt;, giving the assistant direct access to the function&amp;rsquo;s local scope and variables. You can ask: &lt;em&gt;“What is holding &lt;code&gt;result&lt;/code&gt; in a None state?”&lt;/em&gt; and let the model inspect local state on the fly.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Diagnostic Shell Integration&lt;/strong&gt;: Run commands inside &lt;code&gt;%%llm --run&lt;/code&gt; (such as &lt;code&gt;pytest -q&lt;/code&gt;) to capture stdout, stderr, and exit codes instantly, letting the model explain failures and suggest fixes without manual log pasting.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;supercharging-data-analysis-with-agent-skills&#34;&gt;&#xA;  Supercharging Data Analysis with Agent Skills&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#supercharging-data-analysis-with-agent-skills&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Data analysis workflows often require specialized domain knowledge. &lt;code&gt;ipyllm&lt;/code&gt; bridges this gap by supporting local &lt;a href=&#34;https://agentskills.io/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Agent Skills&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

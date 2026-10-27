@@ -1,0 +1,217 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background-color: #fffdf7;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(5rem - 1px),
+      rgba(190, 91, 91, 0.25) calc(5rem - 1px),
+      rgba(190, 91, 91, 0.25) 5rem,
+      transparent 5rem
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(97, 151, 197, 0.2) 31px,
+      rgba(97, 151, 197, 0.2) 32px
+    ),
+    radial-gradient(ellipse at top left, #fffefa, #f5f0df);
+  color: #222;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: 40px;
+  text-shadow: 2px 3px 1px #999;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+h2 {
+  color: #555;
+  font-weight: normal;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+#page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+#app {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Consolas, Menlo, monospace;
+  font-size: 15px;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#auto-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+#auto-row label {
+  font-weight: 500;
+}
+
+#auto-delay {
+  width: 120px;
+  accent-color: #3355aa;
+}
+
+#auto-label {
+  min-width: 4.5em;
+  font-variant-numeric: tabular-nums;
+  color: #555;
+}
+
+#status {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #c66;
+  border-radius: 4px;
+  background: #fbeaea;
+  color: #922;
+}
+
+#status.info {
+  border: 1px solid #bbb;
+  background: #f0f4fa;
+  color: #333;
+}
+#output {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 15px;
+  padding: 0.75rem;
+  min-height: 2.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+}
+
+#brand {
+  text-shadow: none;
+}
+
+#ref {
+  flex: 1 1 45%;
+  max-width: 460px;
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+}
+
+#ref h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+#ref ul {
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+#ref code {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 0.9em;
+  background: #f0f2f8;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+}
+
+#ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+#ref-table th {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  padding: 0.25rem 0.5rem;
+}
+
+#ref-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+#ref-table tr {
+  cursor: pointer;
+}
+
+#ref-table tr:hover td {
+  background: #f0f4fb;
+}
+
+#ref-table tr:hover .code {
+  color: #3355aa;
+}
+
+#ref-table .code {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+#ref-hint {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  #page {
+    flex-direction: column;
+  }
+
+  #app,
+  #ref {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+#github-link {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  color: #555;
+  z-index: 100;
+  transition: color 0.2s;
+}
+
+#github-link:hover {
+  color: #3355aa;
+}

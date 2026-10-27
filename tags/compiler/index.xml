@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Compiler on Juampatronics&#39;s personal website</title>
+		<link>https://juampatronics.github.io/tags/compiler/</link>
+		<description>Recent content in Compiler on Juampatronics&#39;s personal website</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 13 Oct 2026 22:15:02 +0200</lastBuildDate>
+		
+			<atom:link href="https://juampatronics.github.io/tags/compiler/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>eqn2latex</title>
+				<link>https://juampatronics.github.io/posts/eqn2latex/</link>
+				<pubDate>Tue, 13 Oct 2026 22:15:02 +0200</pubDate>
+				<guid>https://juampatronics.github.io/posts/eqn2latex/</guid>
+				<description>&lt;p&gt;Many years ago, I got hooked on &lt;a href=&#34;https://troff.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;troff&lt;/a&gt; and all its companion programs. The best reference to understand and appreciate the design of these tools is &lt;a href=&#34;https://www.oreilly.com/openbook/utp/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UNIX Text Processing&lt;/a&gt;. Great book, still today.&lt;/p&gt;&#xA;&lt;p&gt;Troff’s appeal comes mostly from its design philosophy, which is very much Unix’s: small tools that each do one job, connected by pipes.&lt;/p&gt;&#xA;&lt;p&gt;The preprocessor ecosystem. Instead of one monolithic program, troff has a family of companions that each translate a specialized mini-language into plain troff requests:&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
