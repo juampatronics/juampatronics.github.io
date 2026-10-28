@@ -502,11 +502,12 @@
 
 
 <h1 id="installation">Installation</h1>
-<p>Install <code>ipyllm</code> into the same Python environment used by IPython:</p>
+<p>Install <code>ipyllm</code> from PyPI into the same Python environment used by IPython:</p>
+<pre><code class="language-console">python -m pip install ipyllm
+</code></pre>
+<p>The project requires Python 3.11 or newer. If you are installing from a local project checkout, use:</p>
 <pre><code class="language-console">python -m pip install .
 </code></pre>
-<p>Run that command from the project checkout. The project requires Python 3.11 or
-newer.</p>
 <h2 id="configure-a-model">Configure a model</h2>
 <p><code>ipyllm</code> uses the model and provider configuration managed by
 <a href="https://llm.datasette.io/"><code>llm</code></a>. Configure a provider key, then choose a
