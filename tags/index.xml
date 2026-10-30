@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Tue, 13 Oct 2026 22:15:02 +0200</lastBuildDate>
+			<lastBuildDate>Fri, 30 Oct 2026 23:54:38 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Ipyllm</title>
+				<link>https://juampatronics.github.io/tags/ipyllm/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/ipyllm/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ipython</title>
+				<link>https://juampatronics.github.io/tags/ipython/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/ipython/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>LLMs</title>
+				<link>https://juampatronics.github.io/tags/llms/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/llms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Reproducibility</title>
+				<link>https://juampatronics.github.io/tags/reproducibility/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/reproducibility/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Compiler</title>
 				<link>https://juampatronics.github.io/tags/compiler/</link>
@@ -46,20 +74,6 @@
 				<link>https://juampatronics.github.io/tags/ai-coding/</link>
 				<pubDate>Sun, 11 Oct 2026 23:57:42 +0200</pubDate>
 				<guid>https://juampatronics.github.io/tags/ai-coding/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ipython</title>
-				<link>https://juampatronics.github.io/tags/ipython/</link>
-				<pubDate>Sun, 11 Oct 2026 23:57:42 +0200</pubDate>
-				<guid>https://juampatronics.github.io/tags/ipython/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>LLMs</title>
-				<link>https://juampatronics.github.io/tags/llms/</link>
-				<pubDate>Sun, 11 Oct 2026 23:57:42 +0200</pubDate>
-				<guid>https://juampatronics.github.io/tags/llms/</guid>
 				<description></description>
 			</item>
 			<item>
