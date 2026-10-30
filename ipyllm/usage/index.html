@@ -643,8 +643,32 @@ rejected.</p>
 <td>Execute model-requested code without an approval prompt.</td>
 </tr>
 <tr>
+<td><code>%llm --debug on</code></td>
+<td>Show full IPython tracebacks for errors in model-executed code.</td>
+</tr>
+<tr>
+<td><code>%llm --debug off</code></td>
+<td>Hide those tracebacks (the default).</td>
+</tr>
+<tr>
 <td><code>%llm --skills</code></td>
 <td>List discovered skills and descriptions.</td>
+</tr>
+<tr>
+<td><code>%llm --save FILE.py</code></td>
+<td>Save subsequent requests as comments and model-executed Python to a new script.</td>
+</tr>
+<tr>
+<td><code>%llm --save off</code></td>
+<td>Stop saving to the current script.</td>
+</tr>
+<tr>
+<td><code>%llm --resume FILE.py</code></td>
+<td>Execute a saved session in the current namespace and continue appending to it.</td>
+</tr>
+<tr>
+<td><code>%llm --chain-limit N</code></td>
+<td>Set the maximum model/tool rounds per prompt (default: <code>10</code>).</td>
 </tr>
 <tr>
 <td><code>%llm --config</code></td>
@@ -656,14 +680,59 @@ rejected.</p>
 </tr>
 </tbody>
 </table>
+<p>Raise the limit for prompts where the model needs several tool interactions:</p>
+<pre><code class="language-ipython">%llm --chain-limit 25
+%llm Inspect the data, create a plot, and summarize the results.
+</code></pre>
+<p>The value must be a positive integer. You can also set a default in the
+IPython profile's <code>ipython_config.py</code>:</p>
+<pre><code class="language-python">c.IpyllmMagics.chain_limit = 25
+</code></pre>
+<p>Each prompt uses the current limit. A larger value allows more model/tool
+rounds, but can increase latency and model usage.</p>
+<p>To record a session, enable saving before making requests:</p>
+<pre><code class="language-ipython">%llm --save session_file.py
+%llm Create a small example DataFrame and summarize it.
+</code></pre>
+<p>Each request is written as Python comments, followed by code executed through
+the model's <code>execute_code</code> tool. The file is created in the current working
+directory (or at the path you provide); existing files are never overwritten.
+Saving starts when <code>--save</code> is issued, so earlier requests, manually-entered
+code, and variables created before recording are not included. The script may
+need setup code or data-loading steps to run independently. IPython-only input
+is preserved as comments because it is not valid standalone Python.</p>
+<p>To continue a saved session in a new IPython process, replay its Python code
+and resume appending:</p>
+<pre><code class="language-ipython">%llm --resume session_file.py
+%llm Continue analyzing the data.
+</code></pre>
+<p><code>--resume</code> executes the file in the current IPython namespace and appends
+subsequent requests and model-executed code to that same file. It extracts
+saved request comments as background for the next LLM prompt, but does not
+restore the prior model responses or full conversation. Resuming requires a
+valid <code>.py</code> file and is unavailable while another save target is active; use
+<code>%llm --save off</code> first. The session script is executable Python and may repeat
+side effects such as writing files or making network requests, so inspect it
+before resuming. Manually entered code and pre-existing data are not included
+unless they were captured in the file; IPython-only commands remain comments
+and do not run during replay.</p>
 <p>Code execution is automatic by default. To require approval by default, add
 these settings to the IPython profile's <code>ipython_config.py</code>:</p>
 <pre><code class="language-python">c.IpyllmMagics.require_approval = True
 c.IpyllmMagics.model = &quot;MODEL&quot;
 </code></pre>
-<p>Session commands <code>%llm --approval ...</code> and <code>%llm --model ...</code> override the
-profile settings for the current shell. The approval prompt requires the exact
-response <code>yes</code>.</p>
+<p>Errors from model-executed code are returned to the model so it can diagnose
+and retry, but their tracebacks are hidden from the REPL by default to avoid
+cluttering iterative work. Enable them when debugging the extension or the
+generated code:</p>
+<pre><code class="language-ipython">%llm --debug on
+</code></pre>
+<p>Use <code>%llm --debug off</code> to hide them again. To show tracebacks by default, set
+<code>c.IpyllmMagics.debug = True</code> in <code>ipython_config.py</code>. This setting does not
+suppress successful output or plots.</p>
+<p>Session commands <code>%llm --approval ...</code>, <code>%llm --debug ...</code>, and
+<code>%llm --model ...</code> override the applicable profile settings for the current
+shell. The approval prompt requires the exact response <code>yes</code>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Execution is not sandboxed</p>
 <p>Executed code has the same permissions as the IPython process. It can read
