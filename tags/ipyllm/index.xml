@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ipyllm on Juampatronics&#39;s personal website</title>
+		<link>https://juampatronics.github.io/tags/ipyllm/</link>
+		<description>Recent content in Ipyllm on Juampatronics&#39;s personal website</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 30 Oct 2026 23:54:38 +0100</lastBuildDate>
+		
+			<atom:link href="https://juampatronics.github.io/tags/ipyllm/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Bringing sessions to ipyllm</title>
+				<link>https://juampatronics.github.io/posts/new_ipyllm_version/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/posts/new_ipyllm_version/</guid>
+				<description>&lt;p&gt;When doing data exploration it is also important to remember how you obtained the results. This is the main motivation behind this new version of &lt;a href=&#34;https://github.com/juampatronics/ipyllm&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ipyllm&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You can now start recording a session with &lt;code&gt;%llm --save FILE.py&lt;/code&gt;. From that moment on, all your prompts will be saved as comments followed by the corresponding code produced by your agent in that file. &lt;code&gt;%llm --save off&lt;/code&gt; stops the recording.&lt;/p&gt;&#xA;&lt;p&gt;You can rerun a session and continue recording with &lt;code&gt;%llm --resume FILE.py&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
