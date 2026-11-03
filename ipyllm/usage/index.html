@@ -391,6 +391,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#diagnose-the-last-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose the last error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug-in-a-live-script-with-ipyllmembed" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -406,6 +417,17 @@
     <span class="md-ellipsis">
       
         Use Agent Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-files-to-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add files to the context
       
     </span>
   </a>
@@ -469,6 +491,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#diagnose-the-last-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnose the last error
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug-in-a-live-script-with-ipyllmembed" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -484,6 +517,17 @@
     <span class="md-ellipsis">
       
         Use Agent Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-files-to-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add files to the context
       
     </span>
   </a>
@@ -528,6 +572,21 @@
 <pre><code class="language-ipython">%%llm
 Plot the time series in `data` with matplotlib and run the plotting code.
 </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Prompts ending in <code>?</code></p>
+<p>IPython treats a line that ends in <code>?</code> as a request for object help
+(<code>foo?</code> → inspect <code>foo</code>), and rewrites it before the magic runs. A
+line-magic prompt that ends in <code>?</code> therefore never reaches the model:</p>
+<p><code>ipython
+%llm What do you think of this plan?   # IPython turns this into `pinfo plan`</code></p>
+<p>Two ways to send a question that ends in <code>?</code>: use the cell magic (the
+body is passed through unchanged),</p>
+<p><code>ipython
+%%llm
+What do you think of this plan?</code></p>
+<p>or end the single-line prompt without the trailing <code>?</code>. A <code>?</code> anywhere
+else in the prompt is fine.</p>
+</div>
 <p>The conversation stays in memory for the current IPython session. The model
 starts with variable names and Python types only, and can request additional
 context through tools:</p>
@@ -560,6 +619,23 @@ the timeout in <code>ipython_config.py</code> with
 <p>Only run commands you intended to execute. Command output may contain
 credentials, private paths, or other sensitive data; review it and your model
 provider's data handling before sending it.</p>
+<h2 id="diagnose-the-last-error">Diagnose the last error</h2>
+<p>When a cell raises an exception you don't need to rerun it for help.
+<code>%llm --last-error</code> captures the most recent traceback and asks the model to
+diagnose it:</p>
+<pre><code class="language-ipython">def divide(a, b):
+    return a / b
+
+divide(1, 0)            # ZeroDivisionError
+%llm --last-error explain why this failed and how to fix it
+</code></pre>
+<p><code>ipyllm</code> displays the captured traceback, then sends it and your request to the
+current model conversation. Omit the request to ask for a diagnosis and a fix
+suggestion. The traceback is rendered the way IPython displays it (including
+the source line where the error occurred), with ANSI color codes removed, and
+is limited to 12,000 characters in the model prompt (keeping the beginning and
+end). Only the most recent exception is captured: if a later cell fails, or the
+model itself runs code that fails, that error becomes the one diagnosed.</p>
 <h2 id="debug-in-a-live-script-with-ipyllmembed">Debug in a live script with <code>ipyllm.embed</code></h2>
 <p>Drop a debugging session into any point of a running script with
 <code>ipyllm.embed()</code>. It works like <code>IPython.terminal.embed()</code>: the shell sees
@@ -621,6 +697,39 @@ discovered skills use the same name, invocation is rejected as ambiguous.
 Malformed skill metadata and missing configured directories are reported by
 <code>%llm --skills</code>. Skill instruction files larger than 32,000 characters are
 rejected.</p>
+<h2 id="add-files-to-the-context">Add files to the context</h2>
+<p>Reference local files directly in a prompt with <code>@path</code>. When you type <code>@</code>
+at the start of a word, IPython autocompletes the names of files and
+directories in the referenced folder (directories are shown with a trailing
+<code>/</code>, so you can tab into <code>@sub/</code> and keep going). You can reference several
+files in one prompt:</p>
+<pre><code class="language-ipython">%llm @data.py @notes.md Explain how `data.py` builds the table described in `notes.md`.
+</code></pre>
+<pre><code class="language-ipython">%llm @plots/ Describe the trend across these plots.
+</code></pre>
+<p>How a referenced file reaches the model depends on its type:</p>
+<ul>
+<li><strong>Text files</strong> (code, Markdown, CSV, JSON, plain text, …) contribute their
+  content, labeled with the file name, so the model reads them inline. Each
+  file's content is limited to 12,000 characters.</li>
+<li><strong>Media files</strong> (images, audio, video, and PDF) are sent as
+  <code>llm</code> attachments. They must be a type your model supports; otherwise <code>llm</code>
+  reports the unsupported type.</li>
+<li><strong>Directories</strong> are expanded to the regular files they contain (searched
+  breadth-first, hidden entries skipped, at most 100 files).</li>
+</ul>
+<p>Paths are resolved relative to the current working directory; <code>~</code> and
+absolute paths work too. A reference that does not resolve to an existing
+file or directory is left in the prompt as literal text, so email addresses
+and other in-word <code>@</code> are unaffected. Repeated references are sent only once.
+Binary files that are neither text nor a supported media type are rejected
+with a clear error.</p>
+<div class="admonition note">
+<p class="admonition-title">File contents are sent to the provider</p>
+<p>Referenced files are read locally and their content (or the file itself,
+for media) is included in the request to the model. Review the files and
+the provider's data handling before referencing sensitive ones.</p>
+</div>
 <h2 id="commands">Commands</h2>
 <table>
 <thead>
