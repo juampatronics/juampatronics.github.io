@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Sun, 01 Nov 2026 10:14:46 +0100</lastBuildDate>
+			<lastBuildDate>Tue, 03 Nov 2026 12:48:25 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Ipyllm</title>
+				<link>https://juampatronics.github.io/tags/ipyllm/</link>
+				<pubDate>Tue, 03 Nov 2026 12:48:25 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/ipyllm/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ipython</title>
+				<link>https://juampatronics.github.io/tags/ipython/</link>
+				<pubDate>Tue, 03 Nov 2026 12:48:25 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/ipython/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>LLMs</title>
+				<link>https://juampatronics.github.io/tags/llms/</link>
+				<pubDate>Tue, 03 Nov 2026 12:48:25 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/llms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Release</title>
+				<link>https://juampatronics.github.io/tags/release/</link>
+				<pubDate>Tue, 03 Nov 2026 12:48:25 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/release/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Assisted Debugging</title>
 				<link>https://juampatronics.github.io/tags/assisted-debugging/</link>
@@ -25,27 +53,6 @@
 				<link>https://juampatronics.github.io/tags/django/</link>
 				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
 				<guid>https://juampatronics.github.io/tags/django/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ipyllm</title>
-				<link>https://juampatronics.github.io/tags/ipyllm/</link>
-				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
-				<guid>https://juampatronics.github.io/tags/ipyllm/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ipython</title>
-				<link>https://juampatronics.github.io/tags/ipython/</link>
-				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
-				<guid>https://juampatronics.github.io/tags/ipython/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>LLMs</title>
-				<link>https://juampatronics.github.io/tags/llms/</link>
-				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
-				<guid>https://juampatronics.github.io/tags/llms/</guid>
 				<description></description>
 			</item>
 			<item>

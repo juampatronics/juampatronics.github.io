@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sun, 01 Nov 2026 10:14:46 +0100</lastBuildDate>
+			<lastBuildDate>Tue, 03 Nov 2026 12:48:25 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/tags/llms/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>New ipyllm release 0.4.0</title>
+				<link>https://juampatronics.github.io/posts/ipyllm_040_release/</link>
+				<pubDate>Tue, 03 Nov 2026 12:48:25 +0100</pubDate>
+				<guid>https://juampatronics.github.io/posts/ipyllm_040_release/</guid>
+				<description>&lt;p&gt;This new version brings post-mortem assisted debugging, meaning, instead of launching the pdb debugger as IPython usually does, it captures the trace call and directly prompts an AI agent to diagnose the root cause.&lt;/p&gt;&#xA;&lt;p&gt;Adding more information to the context can help the agent produce better responses. As many tools do, you can now add a file to the context by typing @, followed by the file name. Autocomplete is supported, but fuzzy search not yet. That is left for another release.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Use case for ipyllm: fixing issues of your django apps much faster</title>
 				<link>https://juampatronics.github.io/posts/assisting_django_development/</link>
