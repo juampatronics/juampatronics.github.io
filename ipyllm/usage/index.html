@@ -701,8 +701,18 @@ rejected.</p>
 <p>Reference local files directly in a prompt with <code>@path</code>. When you type <code>@</code>
 at the start of a word, IPython autocompletes the names of files and
 directories in the referenced folder (directories are shown with a trailing
-<code>/</code>, so you can tab into <code>@sub/</code> and keep going). You can reference several
-files in one prompt:</p>
+<code>/</code>, so you can tab into <code>@sub/</code> and keep going).</p>
+<p>When you don't remember the exact path, type <code>@@</code> instead and a loose query
+(a few letters, a typo, or several words) — pressing TAB fuzzy-searches the
+whole current directory tree and completes the best match as a single <code>@</code>
+reference:</p>
+<pre><code class="language-ipython">%llm @@cust data&lt;TAB&gt; What columns does the customer data have?
+# -&gt; %llm @data/customer_data.csv What columns does the customer data have?
+</code></pre>
+<p>The fuzzy search is provided by <code>rapidfuzz</code> and skips directories like
+<code>.git</code>, <code>__pycache__</code>, and <code>node_modules</code>; an empty <code>@@</code> query lists the
+first entries of the tree.</p>
+<p>You can reference several files in one prompt:</p>
 <pre><code class="language-ipython">%llm @data.py @notes.md Explain how `data.py` builds the table described in `notes.md`.
 </code></pre>
 <pre><code class="language-ipython">%llm @plots/ Describe the trend across these plots.
