@@ -2,37 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://juampatronics.github.io/tags/ai-coding/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
+    <loc>https://juampatronics.github.io/tags/assisted-debugging/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
   </url><url>
     <loc>https://juampatronics.github.io/authors/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/django/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/series/ipyllm/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/ipyllm/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/ipython/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/authors/juan-pablo-de-la-cruz-guti%C3%A9rrez/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/llms/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/posts/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/series/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/posts/assisting_django_development/</loc>
+    <lastmod>2026-11-01T10:14:46+01:00</lastmod>
+  </url><url>
+    <loc>https://juampatronics.github.io/tags/ai-coding/</loc>
     <lastmod>2026-10-30T23:54:38+01:00</lastmod>
   </url><url>
     <loc>https://juampatronics.github.io/posts/new_ipyllm_version/</loc>
     <lastmod>2026-10-30T23:54:38+01:00</lastmod>
   </url><url>
-    <loc>https://juampatronics.github.io/tags/ipyllm/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/tags/ipython/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/authors/juan-pablo-de-la-cruz-guti%C3%A9rrez/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/tags/llms/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/posts/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
     <loc>https://juampatronics.github.io/tags/reproducibility/</loc>
-    <lastmod>2026-10-30T23:54:38+01:00</lastmod>
-  </url><url>
-    <loc>https://juampatronics.github.io/tags/</loc>
     <lastmod>2026-10-30T23:54:38+01:00</lastmod>
   </url><url>
     <loc>https://juampatronics.github.io/tags/compiler/</loc>
@@ -64,7 +79,5 @@
     <loc>https://juampatronics.github.io/categories/</loc>
   </url><url>
     <loc>https://juampatronics.github.io/contact/</loc>
-  </url><url>
-    <loc>https://juampatronics.github.io/series/</loc>
   </url>
 </urlset>

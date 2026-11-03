@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Fri, 30 Oct 2026 23:54:38 +0100</lastBuildDate>
+			<lastBuildDate>Sun, 01 Nov 2026 10:14:46 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/authors/juan-pablo-de-la-cruz-guti%C3%A9rrez/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Use case for ipyllm: fixing issues of your django apps much faster</title>
+				<link>https://juampatronics.github.io/posts/assisting_django_development/</link>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
+				<guid>https://juampatronics.github.io/posts/assisting_django_development/</guid>
+				<description>&lt;p&gt;When you are hunting a performance issue or a bug, your model can only reason with your code and some logs or tracecalls you feed into the chat. It would be even more helpful, if your agent could access and even interact with the current state of your application. This is, in a nutshell, what &lt;a href=&#34;https://juampatronics.com/ipyllm&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ipyllm&lt;/a&gt; brings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-ipyllm&#34;&gt;&#xA;  What is ipyllm?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-ipyllm&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://juampatronics.com/ipyllm&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ipyllm&lt;/a&gt; is a open source IPython extension that seamlessly integrates Large Language Models (LLMs) into your live IPython environment. I have described it in previous &lt;a href=&#34;https://juampatronics.com/posts/ipyllm/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;posts&lt;/a&gt;. &lt;strong&gt;tldr&lt;/strong&gt;: it is an agent with full access to your IPython environment, so it can reason about your actual state of the application and IPython history. &lt;strong&gt;Caution&lt;/strong&gt;: it runs code in your environment too.n More on this later.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Bringing sessions to ipyllm</title>
 				<link>https://juampatronics.github.io/posts/new_ipyllm_version/</link>

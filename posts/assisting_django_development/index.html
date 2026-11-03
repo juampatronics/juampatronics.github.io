@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Use case for ipyllm: fixing issues of your django apps much faster · Juampatronics&#39;s personal website
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Juan Pablo de la Cruz Gutiérrez">
+<meta name="description" content="Talking to your Django shell: an LLM that sees your real models and data">
+<meta name="keywords" content="blog, computer vision, AI, personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Use case for ipyllm: fixing issues of your django apps much faster">
+	<meta name="twitter:description" content="Talking to your Django shell: an LLM that sees your real models and data">
+
+<meta property="og:url" content="https://juampatronics.github.io/posts/assisting_django_development/">
+	<meta property="og:site_name" content="Juampatronics&#39;s personal website">
+	<meta property="og:title" content="Use case for ipyllm: fixing issues of your django apps much faster">
+	<meta property="og:description" content="Talking to your Django shell: an LLM that sees your real models and data">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-11-01T10:14:46+01:00">
+		<meta property="article:modified_time" content="2026-11-01T10:14:46+01:00">
+		<meta property="article:tag" content="Django">
+		<meta property="article:tag" content="Ipyllm">
+		<meta property="article:tag" content="Ipython">
+		<meta property="article:tag" content="LLMs">
+		<meta property="article:tag" content="Assisted Debugging">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/new_ipyllm_version/">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/ipyllm/">
+
+
+
+
+<link rel="canonical" href="https://juampatronics.github.io/posts/assisting_django_development/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.5e94c1acf7aa2066035cf2764ae3e4fe39db101d68b870f919966100d51fb861.css" integrity="sha256-XpTBrPeqIGYDXPJ2SuPk/jnbEB1ouHD5GZZhANUfuGE=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+  
+  
+    
+    <link rel="stylesheet" href="/scss/custom.min.65291bedaa17e9ba8ba0e61cfdcb30f5ad76fd145a328858d5bc8a97e311ae9b.css" integrity="sha256-ZSkb7aoX6bqLoOYc/csw9a12/RRaMohY1byKl&#43;MRrps=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://juampatronics.github.io/">
+      Juampatronics&#39;s personal website
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">
+                
+                  Blog
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/photo_selection/">
+                
+                  Photos
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ipyllm/">
+                
+                  <img class="navigation-icon" src="/images/ipyllm_logo.svg" alt="ipyllm">
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/eqn/">
+                
+                  <img class="navigation-icon" src="/images/favicon.ico" alt="pyroff">
+                
+              </a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title post-title-with-image">
+          
+            <img class="post-header-image" src="/images/ipyllm_logo.svg" alt=""/>
+          
+          <h1 class="title">
+            <a class="title-link" href="https://juampatronics.github.io/posts/assisting_django_development/">
+              Use case for ipyllm: fixing issues of your django apps much faster
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-11-01T10:14:46&#43;01:00">
+                November 1, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/juan-pablo-de-la-cruz-guti%C3%A9rrez/">Juan Pablo De La Cruz Gutiérrez</a></div>
+
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/django/">Django</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ipyllm/">Ipyllm</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ipython/">Ipython</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/llms/">LLMs</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/assisted-debugging/">Assisted Debugging</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <p>When you are hunting a performance issue or a bug, your model can only reason with your code and some logs or tracecalls you feed into the chat. It would be even more helpful, if your agent could access and even interact with the current state of your application. This is, in a nutshell, what <a href="https://juampatronics.com/ipyllm"  class="external-link" target="_blank" rel="noopener">ipyllm</a> brings.</p>
+<h2 id="what-is-ipyllm">
+  What is ipyllm?
+  <a class="heading-link" href="#what-is-ipyllm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://juampatronics.com/ipyllm"  class="external-link" target="_blank" rel="noopener">ipyllm</a> is a open source IPython extension that seamlessly integrates Large Language Models (LLMs) into your live IPython environment. I have described it in previous <a href="https://juampatronics.com/posts/ipyllm/"  class="external-link" target="_blank" rel="noopener">posts</a>. <strong>tldr</strong>: it is an agent with full access to your IPython environment, so it can reason about your actual state of the application and IPython history. <strong>Caution</strong>: it runs code in your environment too.n More on this later.</p>
+<p>You can, for example, prompt queries on your DB.</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm Which models relate to Invoice, and what are the reverse accessors?
+</code></pre><h2 id="orm-queries-that-are-verified-not-guessed">
+  ORM queries that are verified, not guessed
+  <a class="heading-link" href="#orm-queries-that-are-verified-not-guessed">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The usual failure of a chat assistant is a plausible queryset with a wrong field name. Here the model can check:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm Top 5 customers by total order value in the last 90 days, with their
+     most recent order. Run it and show me the SQL.
+</code></pre><p>Because it can introspect <code>_meta</code> and execute the result, it can correct itself when <code>Order.total</code> turns out to be <code>Order.amount_cents</code>. You get a queryset that ran against your schema, plus <code>str(qs.query)</code> to sanity-check what Django generated.</p>
+<h2 id="n1-hunting-on-your-own-data">
+  N+1 hunting on your own data
+  <a class="heading-link" href="#n1-hunting-on-your-own-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This is where live state pays off most:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm `orders` is slow to render. Count the queries it issues, find the
+     N+1, and test a fix with select_related / prefetch_related.
+</code></pre><p>The model can measure with <code>CaptureQueriesContext</code>, apply the fix, and measure again. &ldquo;47 queries down to 3&rdquo; is far more convincing than a suggestion you have to take on faith, and it&rsquo;s against your real data volume, not a toy example.</p>
+<h2 id="debugging-inside-a-view">
+  Debugging inside a view
+  <a class="heading-link" href="#debugging-inside-a-view">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>ipyllm ships <code>ipyllm.embed()</code>, which works like IPython&rsquo;s <code>embed()</code> but with the assistant already loaded. Drop it where something looks wrong:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> ipyllm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">checkout</span>(request):
+</span></span><span style="display:flex;"><span>    order <span style="color:#f92672">=</span> build_order(request)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> order<span style="color:#f92672">.</span>is_valid():
+</span></span><span style="display:flex;"><span>        ipyllm<span style="color:#f92672">.</span>embed()   <span style="color:#75715e"># sees `request`, `request.user`, `order`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span></code></pre></div><pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm Why is this order invalid? Check the form errors and the session.
+</code></pre><p>The model sees the function&rsquo;s actual locals: the real <code>request</code>, the real session, the real object. One practical note: an embedded shell needs a working stdin, so <code>runserver</code>&rsquo;s autoreloader gets in the way. Use <code>runserver --noreload</code>, run tests with output capture off (<code>pytest -s</code>), or use <code>embed()</code> in management commands, where it just works.</p>
+<h2 id="making-sense-of-failing-commands">
+  Making sense of failing commands
+  <a class="heading-link" href="#making-sense-of-failing-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Migration conflicts and cryptic test failures are tedious to explain to anyone. <code>%%llm --run</code> runs the command, captures stdout, stderr, and the exit status, and hands them to the model with your question:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%%llm --run Explain the failure and suggest a fix.
+python manage.py migrate
+</code></pre><p>Because the model also has your live shell, it can look at the relevant models while it reads the error. Output sent to the model is capped at 12,000 characters (beginning and end), and commands time out after 120 seconds by default.</p>
+<h2 id="prototype-a-data-fix-then-keep-the-code">
+  Prototype a data fix, then keep the code
+  <a class="heading-link" href="#prototype-a-data-fix-then-keep-the-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Need a one-off cleanup? Prototype it against a sample, and record what happened:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm --save fix_duplicates.py
+%llm Find customers with duplicate emails differing only by case and
+     draft a merge routine. Run it on three examples first.
+</code></pre><p>ipyllm writes your requests as comments and the model-executed Python as code. It&rsquo;s a starting point you review and tidy into a management command or <code>RunPython</code> step, not something to ship as is.</p>
+<h2 id="caveat">
+  Caveat
+  <a class="heading-link" href="#caveat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>In a pandas session, a bad model-written line costs you a variable. In a Django shell, it can touch a database. Model-requested code runs in your process with your permissions, and it is not sandboxed. This is a complex topic I will deal with in greater depth in a different post.</p>
+<p>In any case, a few habits make this safe enough for daily use:</p>
+<ul>
+<li><strong>Development data only.</strong> Never point this at production. Not once.</li>
+<li><strong>Turn approval on.</strong> <code>%llm --approval on</code> makes you review code before it runs, and you can make it the default with <code>c.IpyllmMagics.require_approval = True</code>. The docs are blunt that approval is a review step, not a security boundary, so read what you approve.</li>
+<li><strong>Mind your secrets.</strong> <code>settings</code> holds <code>SECRET_KEY</code> and credentials, and <code>connection.settings_dict</code> includes the database password. If the model inspects them, they go to your provider. Don&rsquo;t ask it to, and prefer environment-variable-based settings you haven&rsquo;t loaded into the shell.</li>
+<li><strong>Mind your data.</strong> Querysets contain real rows, possibly personal data. Use a scrubbed dev database, and check your provider&rsquo;s data handling.</li>
+<li><strong>Make writes reversible.</strong> Ask the model to wrap experiments in a transaction and roll back:</li>
+</ul>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm Run this inside transaction.atomic() and roll back at the end,
+     so I can see the effect without committing anything.
+</code></pre><p>That last one is a convention you ask for, not a guarantee, so it pairs with approval rather than replacing it.</p>
+<h2 id="ipyllms-use-case">
+  Ipyllm&rsquo;s use case
+  <a class="heading-link" href="#ipyllms-use-case">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>ipyllm isn&rsquo;t a replacement for your editor&rsquo;s assistant. It&rsquo;s for the moments when the answer depends on state: what&rsquo;s actually in this queryset, what this request actually contains, what this query actually does. Those are exactly the moments where pasting into a chat window loses the most.</p>
+<p>If you try it in a Django project, I&rsquo;d like to hear what works and what doesn&rsquo;t, especially around <code>shell_plus</code> and <code>embed()</code> in your test setup. A read-only mode and automatic redaction of settings are on my wish list, and Django developers are the people best placed to tell me what&rsquo;s most useful.</p>
+<p><strong>Docs:</strong> <a href="https://juampatronics.com/ipyllm/"  class="external-link" target="_blank" rel="noopener">juampatronics.com/ipyllm</a> · <strong>Code:</strong> <a href="https://github.com/juampatronics/ipyllm"  class="external-link" target="_blank" rel="noopener">github.com/juampatronics/ipyllm</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-ipyllm">
+        See also in ipyllm
+        <a class="heading-link" href="#see-also-in-ipyllm">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="/posts/new_ipyllm_version/">Bringing sessions to ipyllm</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/posts/ipyllm/">Supercharging IPython with ipyllm</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+        <div class="comments">
+    <script>
+  
+    let getTheme = window.localStorage && window.localStorage.getItem("colorscheme");
+  
+    getTheme = getTheme == null ? 'preferred_color_scheme' : getTheme;
+    
+    let s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'juampatronics\/juampatronics.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOM9xmiw');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOM9xmi84DKP-d');
+    s.setAttribute('data-mapping', 'url');
+    s.setAttribute('data-term', '');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'top');
+    s.setAttribute('data-theme', getTheme);
+    s.setAttribute('data-lang', 'en');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    s.setAttribute('async', '');
+    document.querySelector('div.comments').innerHTML = '';
+    document.querySelector('div.comments').appendChild(s);
+  
+    </script>
+    </div>
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Juan Pablo de la Cruz Gutiérrez 
+    ·
+    
+      Licensed under GNU General Public License v3.0 or later
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8WK5L7HZS0"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8WK5L7HZS0');
+        }
+      </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

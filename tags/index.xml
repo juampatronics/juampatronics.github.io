@@ -10,35 +10,49 @@
 		
 		
 		
-			<lastBuildDate>Fri, 30 Oct 2026 23:54:38 +0100</lastBuildDate>
+			<lastBuildDate>Sun, 01 Nov 2026 10:14:46 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>AI Coding</title>
-				<link>https://juampatronics.github.io/tags/ai-coding/</link>
-				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
-				<guid>https://juampatronics.github.io/tags/ai-coding/</guid>
+				<title>Assisted Debugging</title>
+				<link>https://juampatronics.github.io/tags/assisted-debugging/</link>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/assisted-debugging/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Django</title>
+				<link>https://juampatronics.github.io/tags/django/</link>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/django/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Ipyllm</title>
 				<link>https://juampatronics.github.io/tags/ipyllm/</link>
-				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
 				<guid>https://juampatronics.github.io/tags/ipyllm/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Ipython</title>
 				<link>https://juampatronics.github.io/tags/ipython/</link>
-				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
 				<guid>https://juampatronics.github.io/tags/ipython/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>LLMs</title>
 				<link>https://juampatronics.github.io/tags/llms/</link>
-				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
 				<guid>https://juampatronics.github.io/tags/llms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>AI Coding</title>
+				<link>https://juampatronics.github.io/tags/ai-coding/</link>
+				<pubDate>Fri, 30 Oct 2026 23:54:38 +0100</pubDate>
+				<guid>https://juampatronics.github.io/tags/ai-coding/</guid>
 				<description></description>
 			</item>
 			<item>
