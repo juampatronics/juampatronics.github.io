@@ -4,10 +4,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Try eqn online</title>
+  <title>eqnonline — eqn to LaTeX converter, live in your browser</title>
+  <meta name="description" content="Convert eqn code to LaTeX live in your browser: fractions, scripts, sums, products, integrals and roots, rendered instantly with KaTeX. Free and open source, no server.">
+  <link rel="canonical" href="https://juampatronics.github.io/eqnonline/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="eqnonline">
+  <meta property="og:title" content="eqnonline — eqn to LaTeX converter, live in your browser">
+  <meta property="og:description" content="Convert eqn code to LaTeX live in your browser: fractions, scripts, sums, products, integrals and roots, rendered instantly with KaTeX. Free and open source, no server. pyodide. webassembly. lex. yacc. troff">
+  <meta property="og:url" content="https://juampatronics.github.io/eqnonline/">
+  <meta property="og:image" content="https://juampatronics.github.io/eqnonline/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "eqnonline",
+    "url": "https://juampatronics.github.io/eqnonline/",
+    "description": "Convert eqn code to LaTeX live in your browser: fractions, scripts, sums, products, integrals and roots, rendered instantly with KaTeX. Free and open source, no server.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Juan Pablo de la Cruz Gutiérrez" },
+    "publisher": { "@type": "Person", "name": "Juan Pablo de la Cruz Gutiérrez" },
+    "sameAs": ["https://github.com/juampatronics/eqnonline"]
+  }
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="script" href="src/main.bundle.js">
   <link rel="stylesheet" type="text/css" href="src/main.css">
   <link rel="stylesheet" type="text/css" href="src/katex.min.css">
+</head>
 
 <body>
   <a id="github-link" href="https://github.com/juampatronics/eqnonline" target="_blank" aria-label="GitHub Repository">
@@ -18,7 +48,7 @@
       </g>
   </svg>
   </a>
-  <h1 id="brand" aria-label="eqnonline"></h1>
+  <h1 id="brand" aria-label="eqnonline">eqnonline</h1>
   <h2>eqn &rarr; LaTeX, live in your browser</h2>
   <div id="page">
     <div id="app">
@@ -47,7 +77,15 @@
         <thead>
           <tr><th>eqn</th><th>renders as</th></tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <tr tabindex="0"><td class="code">e sup { i pi } = -1</td><td>e^{i\pi} = -1</td></tr>
+          <tr tabindex="0"><td class="code">GAMMA ( 1 over 2 ) = sqrt pi</td><td>\Gamma (\frac{1}{2}) = \sqrt{\pi}</td></tr>
+          <tr tabindex="0"><td class="code">df(x) over dx = lim from { h -&gt; 0 } { f(x+h) - f(x) } over h</td><td>\frac{df(x)}{dx} = \lim_{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}</td></tr>
+          <tr tabindex="0"><td class="code">{ partial sup 2 u } over { partial t sup 2 } = c sup 2 { partial sup 2 u } over { partial x sup 2 }</td><td>\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}</td></tr>
+          <tr tabindex="0"><td class="code">prod from i=0 to inf sum from n=1 to inf x sub n sup i</td><td>\prod_{i=0}^{\infty} \sum_{n=1}^{\infty} x_{n}^i</td></tr>
+          <tr tabindex="0"><td class="code">int from 0 to 1 e sup x dx</td><td>\int_{0}^{1} e^{x} dx</td></tr>
+          <tr tabindex="0"><td class="code">PSI left ( { alpha + beta } over gamma right)</td><td>\Psi\left(\frac{\alpha + \beta}{\gamma}\right)</td></tr>
+        </tbody>
       </table>
       <p id="ref-hint">Click any example to load it into the editor.</p>
     </aside>
