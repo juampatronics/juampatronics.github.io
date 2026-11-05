@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Making ipyllm a better coding companion · Perception, Action and Code
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Juan Pablo de la Cruz Gutiérrez">
+<meta name="description" content="Showcase the new features added, which bring ipyllm closer to modern coding agents. Fuzzy search. Token statistics. Config file">
+<meta name="keywords" content="blog, computer vision, AI, personal">
+
+
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Making ipyllm a better coding companion">
+	<meta name="twitter:description" content="Showcase the new features added, which bring ipyllm closer to modern coding agents. Fuzzy search. Token statistics. Config file">
+
+<meta property="og:url" content="https://juampatronics.github.io/posts/ipyllm_whats_new_since_040/">
+	<meta property="og:site_name" content="Perception, Action and Code">
+	<meta property="og:title" content="Making ipyllm a better coding companion">
+	<meta property="og:description" content="Showcase the new features added, which bring ipyllm closer to modern coding agents. Fuzzy search. Token statistics. Config file">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-11-05T14:37:49+01:00">
+		<meta property="article:modified_time" content="2026-11-05T14:37:49+01:00">
+		<meta property="article:tag" content="Ipyllm">
+		<meta property="article:tag" content="Ipython">
+		<meta property="article:tag" content="LLMs">
+		<meta property="article:tag" content="Release">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/ipyllm_040_release/">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/assisting_django_development/">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/new_ipyllm_version/">
+			<meta property="og:see_also" content="https://juampatronics.github.io/posts/ipyllm/">
+
+
+
+
+<link rel="canonical" href="https://juampatronics.github.io/posts/ipyllm_whats_new_since_040/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.5e94c1acf7aa2066035cf2764ae3e4fe39db101d68b870f919966100d51fb861.css" integrity="sha256-XpTBrPeqIGYDXPJ2SuPk/jnbEB1ouHD5GZZhANUfuGE=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.ad48f476275974885bdc03d5251e3cdbe1678c54a63ff772376b0ed2adc468dd.css" integrity="sha256-rUj0didZdIhb3APVJR482&#43;FnjFSmP/dyN2sO0q3EaN0=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+  
+  
+    
+    <link rel="stylesheet" href="/scss/custom.min.65291bedaa17e9ba8ba0e61cfdcb30f5ad76fd145a328858d5bc8a97e311ae9b.css" integrity="sha256-ZSkb7aoX6bqLoOYc/csw9a12/RRaMohY1byKl&#43;MRrps=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://juampatronics.github.io/">
+      Perception, Action and Code
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">
+                
+                  Blog
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/photo_selection/">
+                
+                  Photos
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/ipyllm/">
+                
+                  <img class="navigation-icon" src="/images/ipyllm_logo.svg" alt="ipyllm">
+                
+              </a>
+            </li>
+          
+            
+            <li class="navigation-item">
+              <a class="navigation-link " href="/eqn/">
+                
+                  <img class="navigation-icon" src="/images/favicon.ico" alt="pyroff">
+                
+              </a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          
+          <h1 class="title">
+            <a class="title-link" href="https://juampatronics.github.io/posts/ipyllm_whats_new_since_040/">
+              Making ipyllm a better coding companion
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-11-05T14:37:49&#43;01:00">
+                November 5, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa-solid fa-user" aria-hidden="true"></i>
+    <a href="/authors/juan-pablo-de-la-cruz-guti%C3%A9rrez/">Juan Pablo De La Cruz Gutiérrez</a></div>
+
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/ipyllm/">Ipyllm</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ipython/">Ipython</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/llms/">LLMs</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/release/">Release</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <h2 id="what-is-ipyllm">
+  What is ipyllm?
+  <a class="heading-link" href="#what-is-ipyllm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><a href="https://juampatronics.com/ipyllm/"  class="external-link" target="_blank" rel="noopener">ipyllm</a> is an <strong>IPython extension</strong> that lets you talk to any model supported by the <a href="https://llm.datasette.io/"  class="external-link" target="_blank" rel="noopener"><code>llm</code></a> Python package <strong>from inside the running shell</strong>. The model doesn&rsquo;t get a paste — it gets a set of tools that can see your variable names and types, inspect a specific object, read your recent input history, and — with your permission — run code in the <em>live</em> namespace, so it can act on the exact DataFrame, plot, or half-built object you&rsquo;re looking at.</p>
+<p>Please refer to <a href="https://juampatronics.com/tags/ipyllm/"  class="external-link" target="_blank" rel="noopener">earlier blog posts</a> for a detailed description and uses cases.</p>
+<h2 id="whats-new-in-06-and-05">
+  What&rsquo;s new in 0.6 and 0.5
+  <a class="heading-link" href="#whats-new-in-06-and-05">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>We bring features that bring the ipyllm experience closer to modern coding agents. Namely,</p>
+<blockquote>
+<p>New fuzzy file search, semantic output color, a config file that remembers your preferences, and live token accounting.</p>
+</blockquote>
+<h3 id="1-fuzzy-file-search-type--hit-tab-get-the-file">
+  1. Fuzzy file search: type <code>@@</code>, hit TAB, get the file
+  <a class="heading-link" href="#1-fuzzy-file-search-type--hit-tab-get-the-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>You can already reference local files in a prompt with <code>@path</code> — code, Markdown, CSV, images, PDFs, even a whole directory — and <code>@</code> autocompletes names one folder at a time. The friction was: <em>what&rsquo;s the exact path?</em></p>
+<p>Now you don&rsquo;t need it. Type <code>@@</code> at the start of a word, follow it with a loose query — a few letters, a typo, or several words — and press <strong>TAB</strong>:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm @@cust data&lt;TAB&gt; What columns does the customer data have?
+# -&gt; %llm @data/customer_data.csv What columns does the customer data have?
+</code></pre><p><code>@@</code> triggers a fuzzy search across the <strong>entire current directory tree</strong>, and the best match replaces your loose query with a clean <code>@</code> reference that <code>%llm</code> resolves as a file. It&rsquo;s powered by <code>rapidfuzz</code> (WRatio scoring), skips directories you never want to see like <code>.git</code>, <code>__pycache__</code>, and <code>node_modules</code>, and an empty <code>@@</code> just lists the first entries of the tree so you can browse.</p>
+<p><strong>When you&rsquo;ll feel it:</strong> on big repos, after <code>git checkout</code>, or when the file you&rsquo;re about to ask about is three levels deep and you only remember a fragment of its name. One tab replaces four <code>ls</code> calls.</p>
+<h3 id="2-semantic-color-the-working-dimmed-the-answer-bright">
+  2. Semantic color: the working dimmed, the answer bright
+  <a class="heading-link" href="#2-semantic-color-the-working-dimmed-the-answer-bright">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A long model response used to be one wall of text: the model&rsquo;s internal reasoning, the raw output of each tool call it ran, and its actual answer all in the same style, hard to tell apart when it scrolled by.</p>
+<p><code>ipyllm</code> now uses color to separate the <strong>semantics</strong> of what you&rsquo;re reading:</p>
+<ul>
+<li>The model&rsquo;s <strong>reasoning/thought</strong> is shown in <strong>dim</strong> text.</li>
+<li><strong>Intermediate tool results</strong> (e.g. <code>· execute_code: ...</code>) are shown in <strong>dim</strong> text, truncated so they don&rsquo;t drown the answer.</li>
+<li>The <strong>final answer</strong> is in the normal, full-contrast foreground.</li>
+</ul>
+<p>Styling is emitted only when the output is a real terminal. If you pipe the session, set <code>NO_COLOR</code>, or run in an environment without a TTY, everything degrades to clean plain text automatically. <code>FORCE_COLOR</code> overrides if you want it on anyway.</p>
+<p><strong>When you&rsquo;ll feel it:</strong> the moment a prompt triggers several tool rounds. You can now glance at a response and instantly see <em>where the answer starts</em> and how much of what you&rsquo;re looking at is just the model thinking out loud.</p>
+<h3 id="3-a-config-file-that-remembers-ipyllmrc">
+  3. A config file that remembers: <code>.ipyllmrc</code>
+  <a class="heading-link" href="#3-a-config-file-that-remembers-ipyllmrc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Previously you set a model and an approval preference with flags, and you did it again next session. 0.6 adds a small INI-style config file that loads automatically at startup.</p>
+<p><code>ipyllm</code> looks for <code>.ipyllmrc</code> in your <strong>current directory first</strong>, then in your <strong>home directory</strong>, and uses whichever it finds first (a project-level file wins over a global one). Missing entries keep their defaults, so the file only needs the settings you actually care about:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[ipyllm]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">ollama/llama3</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">require_approval</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">on</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">off</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">save_session</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">off</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">chain_limit</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">10</span>
+</span></span></code></pre></div><p>Recognized keys (all optional): <code>model</code>, <code>require_approval</code> (<code>on</code>/<code>off</code>), <code>debug</code> (<code>on</code>/<code>off</code>), <code>save_session</code> (a file path or <code>off</code>), and <code>chain_limit</code> (a positive integer). The <code>[ipyllm]</code> header is optional — a flat <code>key = value</code> file works too — and keys/booleans are case-insensitive.</p>
+<p>In addition:</p>
+<ul>
+<li>An invalid or unrecognized entry is reported to <code>stderr</code> and skipped. A typo in the file will never prevent IPython from starting.</li>
+<li>Tweak a setting live with <code>%llm --model …</code>, <code>%llm --approval …</code>, etc., then persist it:</li>
+</ul>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm --save-config            # writes ./.ipyllmrc
+%llm --save-config ~/.ipyllmrc
+</code></pre><p>and <code>%llm --config</code> will tell you <em>which file</em> the settings were loaded from (or <code>defaults</code>).</p>
+<h3 id="4-live-token-accounting---tokens">
+  4. Live token accounting: <code>--tokens</code>
+  <a class="heading-link" href="#4-live-token-accounting---tokens">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cost and context-window pressure are the two things people most often miss until the provider bills them. <code>ipyllm</code> now tracks usage, read directly from the provider via the <code>llm</code> API.</p>
+<p>After <strong>every prompt</strong>, a dim line reports the tokens that prompt used and the running session total:</p>
+<pre tabindex="0"><code>tokens · last prompt: 351 (327 in, 24 out) · session: 702 (654 in, 48 out) · model: gpt-4o
+</code></pre><p>A few details that matter:</p>
+<ul>
+<li>
+<p><strong>&ldquo;last prompt&rdquo; sums every model round it triggered</strong> — a prompt that makes tool calls counts all of its rounds, not just the final one.</p>
+</li>
+<li>
+<p><strong>Per-model totals are kept separately.</strong> Switch with <code>%llm --model</code> and each model keeps its own running total.</p>
+</li>
+<li>
+<p><strong>Review them anytime</strong> with:</p>
+<pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm --tokens
+</code></pre><pre tabindex="0"><code>Token usage for this session:
+  gpt-4o: 702 tokens (654 in, 48 out) over 2 prompt(s)
+  claude: 120 tokens (110 in, 10 out) over 1 prompt(s)
+</code></pre></li>
+</ul>
+<p>Providers that don&rsquo;t report usage show <code>0</code>, and totals survive <code>%llm --reset</code> (they&rsquo;re a session meter, not part of the conversation).</p>
+<h2 id="a-note-on-safety">
+  A note on safety
+  <a class="heading-link" href="#a-note-on-safety">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><code>ipyllm</code> is transparent about the two things that matter here:</p>
+<ul>
+<li><strong>Execution is not sandboxed.</strong> Model-requested code runs in your IPython process with your permissions — files, network, session objects. Approval is a review step, not a security boundary.</li>
+<li><strong>What you reference is what&rsquo;s sent.</strong> File contents, command output, and error tracebacks included in a prompt are sent to the model provider. Review sensitive files and your provider&rsquo;s data handling before you point them at anything private.</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-ipyllm">
+        See also in ipyllm
+        <a class="heading-link" href="#see-also-in-ipyllm">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="/posts/ipyllm_040_release/">New ipyllm release 0.4.0</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/posts/assisting_django_development/">ipyllm: fixing issues of your django apps much faster</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/posts/new_ipyllm_version/">Bringing sessions to ipyllm</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/posts/ipyllm/">Supercharging IPython with ipyllm</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+        <div class="comments">
+    <script>
+  
+    let getTheme = window.localStorage && window.localStorage.getItem("colorscheme");
+  
+    getTheme = getTheme == null ? 'preferred_color_scheme' : getTheme;
+    
+    let s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'juampatronics\/juampatronics.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOM9xmiw');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOM9xmi84DKP-d');
+    s.setAttribute('data-mapping', 'url');
+    s.setAttribute('data-term', '');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'top');
+    s.setAttribute('data-theme', getTheme);
+    s.setAttribute('data-lang', 'en');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    s.setAttribute('async', '');
+    document.querySelector('div.comments').innerHTML = '';
+    document.querySelector('div.comments').appendChild(s);
+  
+    </script>
+    </div>
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Juan Pablo de la Cruz Gutiérrez 
+    ·
+    
+      Licensed under GNU General Public License v3.0 or later
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8WK5L7HZS0"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8WK5L7HZS0');
+        }
+      </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

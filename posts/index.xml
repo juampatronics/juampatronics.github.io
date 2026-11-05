@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Posts on Juampatronics&#39;s personal website</title>
+		<title>Posts on Perception, Action and Code</title>
 		<link>https://juampatronics.github.io/posts/</link>
-		<description>Recent content in Posts on Juampatronics&#39;s personal website</description>
+		<description>Recent content in Posts on Perception, Action and Code</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
 		
 		
 		
-			<lastBuildDate>Tue, 03 Nov 2026 12:48:25 +0100</lastBuildDate>
+			<lastBuildDate>Thu, 05 Nov 2026 14:37:49 +0100</lastBuildDate>
 		
 			<atom:link href="https://juampatronics.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Making ipyllm a better coding companion</title>
+				<link>https://juampatronics.github.io/posts/ipyllm_whats_new_since_040/</link>
+				<pubDate>Thu, 05 Nov 2026 14:37:49 +0100</pubDate>
+				<guid>https://juampatronics.github.io/posts/ipyllm_whats_new_since_040/</guid>
+				<description>&lt;h2 id=&#34;what-is-ipyllm&#34;&gt;&#xA;  What is ipyllm?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-ipyllm&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://juampatronics.com/ipyllm/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ipyllm&lt;/a&gt; is an &lt;strong&gt;IPython extension&lt;/strong&gt; that lets you talk to any model supported by the &lt;a href=&#34;https://llm.datasette.io/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;llm&lt;/code&gt;&lt;/a&gt; Python package &lt;strong&gt;from inside the running shell&lt;/strong&gt;. The model doesn&amp;rsquo;t get a paste — it gets a set of tools that can see your variable names and types, inspect a specific object, read your recent input history, and — with your permission — run code in the &lt;em&gt;live&lt;/em&gt; namespace, so it can act on the exact DataFrame, plot, or half-built object you&amp;rsquo;re looking at.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>New ipyllm release 0.4.0</title>
 				<link>https://juampatronics.github.io/posts/ipyllm_040_release/</link>
@@ -21,7 +28,7 @@
 				<description>&lt;p&gt;This new version brings post-mortem assisted debugging, meaning, instead of launching the pdb debugger as IPython usually does, it captures the trace call and directly prompts an AI agent to diagnose the root cause.&lt;/p&gt;&#xA;&lt;p&gt;Adding more information to the context can help the agent produce better responses. As many tools do, you can now add a file to the context by typing @, followed by the file name. Autocomplete is supported, but fuzzy search not yet. That is left for another release.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>Use case for ipyllm: fixing issues of your django apps much faster</title>
+				<title>ipyllm: fixing issues of your django apps much faster</title>
 				<link>https://juampatronics.github.io/posts/assisting_django_development/</link>
 				<pubDate>Sun, 01 Nov 2026 10:14:46 +0100</pubDate>
 				<guid>https://juampatronics.github.io/posts/assisting_django_development/</guid>
