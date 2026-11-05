@@ -251,9 +251,9 @@
 <blockquote>
 <p>New fuzzy file search, semantic output color, a config file that remembers your preferences, and live token accounting.</p>
 </blockquote>
-<h3 id="1-fuzzy-file-search-type--hit-tab-get-the-file">
-  1. Fuzzy file search: type <code>@@</code>, hit TAB, get the file
-  <a class="heading-link" href="#1-fuzzy-file-search-type--hit-tab-get-the-file">
+<h3 id="fuzzy-file-search-type--hit-tab-get-the-file">
+  Fuzzy file search: type <code>@@</code>, hit TAB, get the file
+  <a class="heading-link" href="#fuzzy-file-search-type--hit-tab-get-the-file">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -264,9 +264,9 @@
 # -&gt; %llm @data/customer_data.csv What columns does the customer data have?
 </code></pre><p><code>@@</code> triggers a fuzzy search across the <strong>entire current directory tree</strong>, and the best match replaces your loose query with a clean <code>@</code> reference that <code>%llm</code> resolves as a file. It&rsquo;s powered by <code>rapidfuzz</code> (WRatio scoring), skips directories you never want to see like <code>.git</code>, <code>__pycache__</code>, and <code>node_modules</code>, and an empty <code>@@</code> just lists the first entries of the tree so you can browse.</p>
 <p><strong>When you&rsquo;ll feel it:</strong> on big repos, after <code>git checkout</code>, or when the file you&rsquo;re about to ask about is three levels deep and you only remember a fragment of its name. One tab replaces four <code>ls</code> calls.</p>
-<h3 id="2-semantic-color-the-working-dimmed-the-answer-bright">
-  2. Semantic color: the working dimmed, the answer bright
-  <a class="heading-link" href="#2-semantic-color-the-working-dimmed-the-answer-bright">
+<h3 id="semantic-color-the-working-dimmed-the-answer-bright">
+  Semantic color: the working dimmed, the answer bright
+  <a class="heading-link" href="#semantic-color-the-working-dimmed-the-answer-bright">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -280,9 +280,9 @@
 </ul>
 <p>Styling is emitted only when the output is a real terminal. If you pipe the session, set <code>NO_COLOR</code>, or run in an environment without a TTY, everything degrades to clean plain text automatically. <code>FORCE_COLOR</code> overrides if you want it on anyway.</p>
 <p><strong>When you&rsquo;ll feel it:</strong> the moment a prompt triggers several tool rounds. You can now glance at a response and instantly see <em>where the answer starts</em> and how much of what you&rsquo;re looking at is just the model thinking out loud.</p>
-<h3 id="3-a-config-file-that-remembers-ipyllmrc">
-  3. A config file that remembers: <code>.ipyllmrc</code>
-  <a class="heading-link" href="#3-a-config-file-that-remembers-ipyllmrc">
+<h3 id="a-config-file-that-remembers-ipyllmrc">
+  A config file that remembers: <code>.ipyllmrc</code>
+  <a class="heading-link" href="#a-config-file-that-remembers-ipyllmrc">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
@@ -304,9 +304,9 @@
 <pre tabindex="0"><code class="language-ipython" data-lang="ipython">%llm --save-config            # writes ./.ipyllmrc
 %llm --save-config ~/.ipyllmrc
 </code></pre><p>and <code>%llm --config</code> will tell you <em>which file</em> the settings were loaded from (or <code>defaults</code>).</p>
-<h3 id="4-live-token-accounting---tokens">
-  4. Live token accounting: <code>--tokens</code>
-  <a class="heading-link" href="#4-live-token-accounting---tokens">
+<h3 id="live-token-accounting---tokens">
+  Live token accounting: <code>--tokens</code>
+  <a class="heading-link" href="#live-token-accounting---tokens">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
     <span class="sr-only">Link to heading</span>
   </a>
