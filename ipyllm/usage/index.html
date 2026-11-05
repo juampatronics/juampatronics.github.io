@@ -380,6 +380,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#token-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#diagnose-a-shell-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -439,6 +450,17 @@
     <span class="md-ellipsis">
       
         Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-ipyllmrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration file (.ipyllmrc)
       
     </span>
   </a>
@@ -480,6 +502,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#token-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#diagnose-a-shell-command" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -539,6 +572,17 @@
     <span class="md-ellipsis">
       
         Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-ipyllmrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration file (.ipyllmrc)
       
     </span>
   </a>
@@ -598,6 +642,29 @@ context through tools:</p>
 <li><code>execute_code</code> runs code in the active shell, allowing it to use live objects
   and display plots.</li>
 </ul>
+<p>For readability, the model's working is styled distinctly from its answer: its
+reasoning (thought) and the intermediate results of its tool calls are shown in
+dim text, while the final answer is shown in the normal foreground. When output
+is piped (or <code>NO_COLOR</code> is set) the styling is turned off and the text is plain.</p>
+<h2 id="token-usage">Token usage</h2>
+<p>After every prompt, <code>ipyllm</code> prints a dim line reporting the tokens used by
+that prompt and the running total for the session, both read from the model
+provider's usage via the <code>llm</code> Python API:</p>
+<pre><code>tokens · last prompt: 351 (327 in, 24 out) · session: 702 (654 in, 48 out) · model: gpt-4o
+</code></pre>
+<p>"last prompt" counts every model round that prompt triggered (a prompt that
+makes tool calls sums all of its rounds), and "session" is the cumulative total
+for that model in this IPython session. When you switch models with
+<code>%llm --model</code>, each model keeps its own running total. Review the per-model
+totals at any time with:</p>
+<pre><code class="language-ipython">%llm --tokens
+</code></pre>
+<pre><code>Token usage for this session:
+  gpt-4o: 702 tokens (654 in, 48 out) over 2 prompt(s)
+  claude: 120 tokens (110 in, 10 out) over 1 prompt(s)
+</code></pre>
+<p>Totals are kept in memory for the current IPython session and are not reset by
+<code>%llm --reset</code>. Providers that do not report usage show <code>0</code>.</p>
 <h2 id="diagnose-a-shell-command">Diagnose a shell command</h2>
 <p>Run a command inside <code>%%llm --run</code> to capture its output and ask the model for
 help understanding the result:</p>
@@ -794,6 +861,10 @@ the provider's data handling before referencing sensitive ones.</p>
 <td>Show the effective model and approval setting.</td>
 </tr>
 <tr>
+<td><code>%llm --tokens</code></td>
+<td>Show per-model token totals for this session.</td>
+</tr>
+<tr>
 <td><code>%llm --reset</code></td>
 <td>Clear the current conversation.</td>
 </tr>
@@ -859,6 +930,70 @@ or modify files, use the network, and change session objects. Approval is a
 review step, not a security boundary. Use trusted models/providers and do
 not expose secrets to a provider that should not receive them.</p>
 </div>
+<h2 id="configuration-file-ipyllmrc">Configuration file (<code>.ipyllmrc</code>)</h2>
+<p>The settings shown by <code>%llm --config</code> can be stored in a <code>.ipyllmrc</code> file. On
+startup the extension loads it automatically, searching the <strong>current
+directory first</strong>, then your <strong>home directory</strong> (<code>$HOME</code>), and falling back to
+built-in defaults when neither exists. The first file found is used; entries
+present in it override the defaults and any missing entries keep their
+defaults, so the file only needs to list the settings you want to change.</p>
+<pre><code class="language-ini">[ipyllm]
+model = ollama/llama3
+require_approval = on
+debug = off
+save_session = off
+chain_limit = 10
+</code></pre>
+<p>Recognized keys (all optional):</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Accepted values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td>Model ID or alias (as for <code>%llm --model</code>).</td>
+<td>any model string</td>
+</tr>
+<tr>
+<td><code>require_approval</code></td>
+<td>Ask before executing model-requested code.</td>
+<td><code>on</code> / <code>off</code></td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td>Show IPython tracebacks for model-executed code.</td>
+<td><code>on</code> / <code>off</code></td>
+</tr>
+<tr>
+<td><code>save_session</code></td>
+<td>Session script to append to, or none.</td>
+<td>a file path, <code>off</code>, or omit</td>
+</tr>
+<tr>
+<td><code>chain_limit</code></td>
+<td>Maximum model/tool rounds per prompt.</td>
+<td>positive integer</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>[ipyllm]</code> header is optional (a flat <code>key = value</code> file also works). Keys
+and booleans are case-insensitive. A <code>.ipyllmrc</code> in the current directory takes
+precedence over one in <code>$HOME</code>. Invalid or unrecognized entries are reported to
+stderr and skipped, so a problem in the file never prevents IPython from
+starting.</p>
+<p>Write the current settings to a file (default: <code>./.ipyllmrc</code>) with:</p>
+<pre><code class="language-ipython">%llm --save-config            # writes ./.ipyllmrc
+%llm --save-config ~/.ipyllmrc
+</code></pre>
+<p><code>%llm --config</code> reports which file the settings were loaded from (or <code>defaults</code>).
+Session commands (<code>%llm --model</code>, <code>--approval</code>, <code>--debug</code>, <code>--chain-limit</code>)
+change the values for the current shell and can be persisted with
+<code>%llm --save-config</code>.</p>
 
 
 
